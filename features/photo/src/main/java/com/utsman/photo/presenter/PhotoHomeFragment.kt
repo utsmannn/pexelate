@@ -23,8 +23,9 @@ class PhotoHomeFragment : BindingFragment<FragmentPhotoHomeBinding>() {
         onBindItem = { _, item ->
             ItemPhotoHomeBinding.bind(this).apply {
                 imagePhotoCurated.loadImage(item.sources.medium)
+
                 root.setOnClickListener {
-                    val detailClass = ActivityNavigator.DETAIL_ACTIVITY_CONTAINER.activityDetailClass
+                    val detailClass = Class.forName("com.utsman.detail.DetailActivityy")
                     val intent = Intent(context, detailClass).apply {
                         putExtra("image_url", item.sources.medium)
                     }
