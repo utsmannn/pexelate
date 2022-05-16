@@ -28,10 +28,12 @@ class PhotoHomeFragment : BindingFragment<FragmentPhotoHomeBinding>() {
             ItemPhotoHomeBinding.bind(this).apply {
                 imagePhotoCurated.loadImage(item.sources.medium)
                 root.setOnClickListener {
+                    val start = System.currentTimeMillis()
                     val detailClass = DetailActivity::class.java
                     val intent = Intent(context, detailClass).apply {
                         putExtra("image_url", item.sources.medium)
                     }
+                    println("cost time ---> ${System.currentTimeMillis()-start}")
                     startActivity(intent)
                 }
             }
