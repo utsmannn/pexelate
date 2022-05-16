@@ -121,7 +121,7 @@ class GenericAdapter<T : Equatable>(
         }
     }
 
-    fun pushItems(items: List<T>) {
+    fun addItems(items: List<T>) {
         val newItem = calculateMutableItems()
         if (items.isNotEmpty()) newItem.addAll(items)
         if (newItem.isEmpty()) newItem.add(Empty(""))

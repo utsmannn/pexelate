@@ -9,6 +9,7 @@
         <entry key="core/src/main/res/layout/core_item_loading.xml" value="0.3338541666666667" />
         <entry key="features/collection/src/main/res/layout/fragment_collection_home.xml" value="0.3338541666666667" />
         <entry key="features/collection/src/main/res/layout/item_collection_home.xml" value="0.3338541666666667" />
+        <entry key="features/detail/src/main/res/layout/activity_detail.xml" value="0.3484375" />
         <entry key="features/homepage/src/main/res/layout/fragment_homepage.xml" value="0.3338541666666667" />
         <entry key="features/homepage/src/main/res/layout/item_homepage.xml" value="0.3338541666666667" />
         <entry key="features/photo/src/main/res/layout/fragment_photo_home.xml" value="0.3338541666666667" />

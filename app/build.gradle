@@ -42,4 +42,5 @@ dependencies {
 
     implementation project(":features:photo")
     implementation project(":features:collection")
+    implementation project(":features:detail")
 }

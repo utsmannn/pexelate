@@ -1,11 +1,13 @@
 package com.utsman.photo.presenter
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.utsman.core.extensions.*
 import com.utsman.core.view.adapter.GenericAdapter
 import com.utsman.core.view.binding.BindingFragment
+import com.utsman.navigator.ActivityNavigator
 import com.utsman.photo.R
 import com.utsman.photo.data.entity.Photo
 import com.utsman.photo.databinding.FragmentPhotoHomeBinding
@@ -21,6 +23,13 @@ class PhotoHomeFragment : BindingFragment<FragmentPhotoHomeBinding>() {
         onBindItem = { _, item ->
             ItemPhotoHomeBinding.bind(this).apply {
                 imagePhotoCurated.loadImage(item.sources.medium)
+                root.setOnClickListener {
+                    val detailClass = ActivityNavigator.DETAIL_ACTIVITY_CONTAINER.activityDetailClass
+                    val intent = Intent(context, detailClass).apply {
+                        putExtra("image_url", item.sources.medium)
+                    }
+                    startActivity(intent)
+                }
             }
         }
     )
@@ -49,7 +58,7 @@ class PhotoHomeFragment : BindingFragment<FragmentPhotoHomeBinding>() {
                 photoAdapter.pushLoading()
             }
             state.onSuccess {
-                photoAdapter.pushItems(it)
+                photoAdapter.addItems(it)
             }
             state.onFailure {
                 photoAdapter.pushError(it)

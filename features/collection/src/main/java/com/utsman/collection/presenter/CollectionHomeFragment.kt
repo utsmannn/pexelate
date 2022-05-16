@@ -49,7 +49,7 @@ class CollectionHomeFragment : BindingFragment<FragmentCollectionHomeBinding>() 
             }
 
             state.onSuccess {
-                collectionAdapter.pushItems(it)
+                collectionAdapter.addItems(it)
             }
 
             state.onFailure {

@@ -14,13 +14,13 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/collection" />
+            <option value="$PROJECT_DIR$/features/detail" />
             <option value="$PROJECT_DIR$/features/homepage" />
             <option value="$PROJECT_DIR$/features/photo" />
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/shared/navigator" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

@@ -1,6 +1,8 @@
 package com.utsman.homepage
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.utsman.core.extensions.genericAdapterLazy
 import com.utsman.core.extensions.replaceToFragment
@@ -14,16 +16,18 @@ class HomepageFragment : BindingFragment<FragmentHomepageBinding>() {
 
     private val homepageAdapter: GenericAdapter<HomepageItem> by genericAdapterLazy(
         layoutRes = R.layout.item_homepage,
-        onBindItem = { _, item ->
-            ItemHomepageBinding.bind(this).apply {
-                childFragmentManager.replaceToFragment(
-                    container = root,
-                    fragment = item.fragment,
-                    isUnique = true
-                )
-            }
-        }
+        onBindItem = { _, item -> bindViewHolder(this, item) }
     )
+
+    private fun bindViewHolder(view: View, item: HomepageItem) {
+        ItemHomepageBinding.bind(view).apply {
+            childFragmentManager.replaceToFragment(
+                container = root,
+                fragment = item.fragment,
+                isUnique = true
+            )
+        }
+    }
 
     override fun inflateBinding(): FragmentHomepageBinding {
         return FragmentHomepageBinding.inflate(layoutInflater)
@@ -43,13 +47,13 @@ class HomepageFragment : BindingFragment<FragmentHomepageBinding>() {
     }
 
     private fun setupContent() {
-        val content = listOf(
-            FragmentNavigator.PHOTO_FRAGMENT_CONTAINER.fragmentHomeClass,
-            FragmentNavigator.COLLECTION_FRAGMENT_CONTAINER.fragmentHomeClass
-        ).map {
+        val fragmentPhoto = FragmentNavigator.PHOTO_FRAGMENT_CONTAINER.fragmentHomeClass
+        val fragmentCollection = FragmentNavigator.COLLECTION_FRAGMENT_CONTAINER.fragmentHomeClass
+
+        val content = listOf(fragmentPhoto, fragmentCollection).map {
             HomepageItem(it)
         }
 
-        homepageAdapter.pushItems(content)
+        homepageAdapter.addItems(content)
     }
 }
