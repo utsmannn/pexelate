@@ -4,10 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.utsman.core.extensions.*
+import com.utsman.core.extensions.genericAdapterLazy
+import com.utsman.core.extensions.loadImage
+import com.utsman.core.extensions.onFailure
+import com.utsman.core.extensions.onLoading
+import com.utsman.core.extensions.onSuccess
 import com.utsman.core.view.adapter.GenericAdapter
 import com.utsman.core.view.binding.BindingFragment
-import com.utsman.navigator.ActivityNavigator
+import com.utsman.detail.DetailActivity
 import com.utsman.photo.R
 import com.utsman.photo.data.entity.Photo
 import com.utsman.photo.databinding.FragmentPhotoHomeBinding
@@ -24,7 +28,7 @@ class PhotoHomeFragment : BindingFragment<FragmentPhotoHomeBinding>() {
             ItemPhotoHomeBinding.bind(this).apply {
                 imagePhotoCurated.loadImage(item.sources.medium)
                 root.setOnClickListener {
-                    val detailClass = ActivityNavigator.DETAIL_ACTIVITY_CONTAINER.activityDetailClass
+                    val detailClass = DetailActivity::class.java
                     val intent = Intent(context, detailClass).apply {
                         putExtra("image_url", item.sources.medium)
                     }
