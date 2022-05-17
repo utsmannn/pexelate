@@ -1,0 +1,32 @@
+
+              digraph modules {
+                  rankdir = "TB"
+                  label = "Module dependencies"
+
+                  		"app" -> "core" [color = black]
+"app" -> "shared:navigator" [color = black]
+"app" -> "features:homepage" [color = black]
+"app" -> "features:photo" [color = black]
+"app" -> "features:collection" [color = black]
+"app" -> "features:detail" [color = black]
+"features:collection" -> "core" [color = black]
+"features:collection" -> "shared:navigator" [color = black]
+"features:detail" -> "core" [color = black]
+"features:detail" -> "shared:navigator" [color = black]
+"features:homepage" -> "core" [color = black]
+"features:homepage" -> "shared:navigator" [color = black]
+"features:photo" -> "core" [color = black]
+"features:photo" -> "shared:navigator" [color = black]
+"shared:navigator" -> "core" [color = black]
+
+
+                  subgraph cluster_01 { 
+                      label = "Legend"
+                      graph [fontsize = 10]
+                      node [fontsize = 10]
+                      edge [fontsize = 10]
+                      module -> dependency [color=red, label="api"]
+                      module -> dependency [color=black, label="implementation"]
+                      module -> dependency [color=green, label="compile"]
+                  }
+              }

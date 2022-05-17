@@ -5,6 +5,7 @@ import com.utsman.detail.navigator.ActivityContainerImpl
 import com.utsman.navigator.activity.DetailActivityContainer
 import org.koin.dsl.module
 
+@Suppress("unused")
 class DetailModuleContainer : ModuleContainer() {
 
     private val detailModule = module {

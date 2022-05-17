@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.utsman.photo.navigator
 
 import androidx.fragment.app.Fragment
@@ -7,5 +9,5 @@ import com.utsman.photo.presenter.PhotoHomeFragment
 
 class FragmentContainerImpl : PhotoFragmentContainer {
     override val fragmentHomeClass: Class<Fragment>
-        get() = PhotoHomeFragment::class.java.asFragmentClass()
+        get() = PhotoHomeFragment::class.java as Class<Fragment>
 }
